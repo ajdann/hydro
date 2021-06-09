@@ -34,3 +34,15 @@ export const latestReading = async (req, res) =>{
     const updatedPost = await LatestReading.findByIdAndUpdate(_id, post, {new:true});
     res.json(updatedPost);
 }
+
+
+export const getAllReadings = async (req, res) => {
+    try{
+        const foundMessages = await Readings.find();
+        console.log(foundMessages);
+        res.status(200).json(foundMessages);
+;
+    } catch(error){
+        res.status(404).json({message: error.message});
+    }
+}
