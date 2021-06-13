@@ -7,6 +7,7 @@ const parametersSchema = mongoose.Schema({
     ECHigh: Number, 
     tempLow: Number, 
     tempHigh: Number, 
+    operate: Boolean
 });
 
 const Parameters = mongoose.model('Parameters', parametersSchema);

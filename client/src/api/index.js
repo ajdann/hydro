@@ -1,23 +1,25 @@
 import axios from 'axios';
 
-const url = 'http://localhost:5000/posts';
-const url2 = "http://localhost:5001/readings";
-const parameterURL = "http://localhost:5001/parameters";
+const url_posts = 'http://localhost:5000/posts';
+const url_reading = "http://localhost:5001/readings";
+const url_params = "http://localhost:5001/parameters";
 
 
-export const fetchPosts = () => axios.get(url);
+export const fetchPosts = () => axios.get(url_posts);
 
-export const fetchLatestReading = () => axios.get(`${url2}/latest`);
+export const fetchLatestReading = () => axios.get(`${url_reading}/latest`);
 
-export const postParameters = (newParameters) => axios.put(parameterURL, newParameters)
+export const getAllReadings = () => axios.get(`${url_reading}/all`);
 
-export const getParameters = () => axios.post(parameterURL)
+export const postParameters = (newParameters) => axios.put(url_params, newParameters);
 
-export const createPost = (newPost) => axios.post(url, newPost);
+export const getParameters = () => axios.get(url_params);
 
-export const updatePost = (id, updatedPost) => axios.patch(`${url}/${id}`, updatedPost);
+export const createPost = (newPost) => axios.post(url_posts, newPost);
 
-export const deletePost = (id) => axios.delete(`${url}/${id}`);
+export const updatePost = (id, updatedPost) => axios.patch(`${url_posts}/${id}`, updatedPost);
 
-export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
+export const deletePost = (id) => axios.delete(`${url_posts}/${id}`);
+
+export const likePost = (id) => axios.patch(`${url_posts}/${id}/likePost`);
 
